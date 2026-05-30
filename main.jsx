@@ -352,7 +352,7 @@ function Home({ t, go }) {
           </div>
         </div>
         <div className="hero-media">
-          <img src="/images/dutch-lessons-hero.png" alt="Online Nederlandse lessen" />
+          <img src="/dutch-lessons-hero.png" alt="Online Nederlandse lessen" />
         </div>
       </section>
       <Benefits t={t} />
