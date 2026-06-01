@@ -29,8 +29,8 @@ Vercel geeft daarna gratis een subdomein, bijvoorbeeld `nahid-taalschool.vercel.
 
 ## Nog invullen voor livegang
 
-- Vervang `https://www.instagram.com/` in `src/main.jsx` door de echte Instagram-link.
-- Vervang `https://t.me/` in `src/main.jsx` door de echte Telegram-link.
-- Vervang `G-XXXXXXXXXX` in `src/main.jsx` door je Google Analytics Measurement ID.
-- Voeg je echte logo toe als je het bestand hebt, of vervang de huidige letter-N merkknop.
+- Instagram is gekoppeld aan `@nahid_taalles`.
+- Telegram is gekoppeld aan `@Nahid_1301`.
+- Het logo en de foto's staan in `public/images`.
+- Voeg later Google Analytics toe als je een Measurement ID hebt.
 - Vervang juridische voorbeeldtekst eventueel door definitieve voorwaarden/privacytekst.

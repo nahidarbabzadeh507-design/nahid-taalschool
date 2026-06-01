@@ -12,12 +12,22 @@ import {
   Mail,
   Menu,
   MessageCircle,
+  Send,
   ShieldCheck,
   Sparkles,
+  Target,
   Users,
   X
 } from "lucide-react";
 import "./styles.css";
+
+const business = {
+  email: "nahidtaalschool@gmail.com",
+  kvk: "97121908",
+  btw: "NL005249616B95",
+  instagram: "https://www.instagram.com/nahid_taalles?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+  telegram: "https://t.me/Nahid_1301"
+};
 
 const languages = {
   nl: { label: "NL", dir: "ltr", name: "Nederlands" },
@@ -25,12 +35,6 @@ const languages = {
   fa: { label: "فا", dir: "rtl", name: "فارسی" }
 };
 
-const socialLinks = {
-  instagram: "https://www.instagram.com/",
-  telegram: "https://t.me/"
-};
-
-const gaMeasurementId = "G-XXXXXXXXXX";
 const navKeys = ["home", "about", "courses", "integration", "private", "faq", "blog", "contact"];
 const legalKeys = ["privacy", "terms"];
 
@@ -38,43 +42,53 @@ const content = {
   nl: {
     nav: ["Home", "Over mij", "Cursussen", "Inburgering", "Privelessen", "FAQ", "Blog", "Contact"],
     legal: ["Privacybeleid", "Algemene voorwaarden"],
+    brandLine: "Online Dutch Lessons",
+    announcement: "Binnenkort starten nieuwe periodes voor alle niveaus. Schrijf je op tijd in.",
     heroKicker: "Online NT2 lessen voor Farsi-sprekers",
-    heroTitle: "Leer Nederlands met zelfvertrouwen",
+    heroTitle: "Leer Nederlands spreken met rust, structuur en zelfvertrouwen",
     heroText:
-      "Nahid Taalschool helpt anderstaligen sneller, rustiger en praktischer Nederlands leren. Met duidelijke uitleg in Farsi, Engels en Nederlands bouw je stap voor stap aan spreken, grammatica en echte communicatie.",
+      "Voor veel cursisten is Nederlands niet moeilijk omdat ze niet slim genoeg zijn, maar omdat ze nooit duidelijke uitleg en echte spreekoefening krijgen. Bij Nahid Taalschool leer je stap voor stap hoe je Nederlands gebruikt in gesprekken, werk, studie en inburgering.",
     primaryCta: "Bekijk cursussen",
-    secondaryCta: "Neem contact op",
+    secondaryCta: "Stuur een bericht",
     stats: [
-      ["A0-B2", "Niveaus"],
-      ["Online", "Wereldwijd"],
-      ["3 talen", "Uitleg"]
+      ["A0-B2", "Van beginner tot gevorderd"],
+      ["Online", "Flexibel vanuit elke plek"],
+      ["Farsi/EN/NL", "Uitleg die je echt begrijpt"]
     ],
-    benefitsTitle: "Praktisch Nederlands voor jouw toekomst",
+    benefitsTitle: "Waarom studenten voor Nahid Taalschool kiezen",
     benefits: [
-      ["Spreken vanaf les 1", "Oefen met situaties die je echt nodig hebt voor werk, studie, inburgering en dagelijks leven."],
-      ["Begrijpelijke grammatica", "Moeilijke regels worden duidelijk uitgelegd in Farsi, Engels en Nederlands."],
-      ["Persoonlijke begeleiding", "Je krijgt structuur, feedback en hulp op het tempo dat bij jou past."]
+      ["Je durft sneller te spreken", "Je oefent met echte situaties: kennismaken, afspraken maken, werkgesprekken, school, huisarts en dagelijkse communicatie."],
+      ["Je begrijpt grammatica beter", "Geen losse regels zonder context, maar heldere uitleg met voorbeelden in Farsi, Engels en Nederlands."],
+      ["Je weet precies wat je moet leren", "Je krijgt structuur, huiswerk, feedback en een duidelijk pad naar je volgende niveau."]
     ],
-    aboutTitle: "Over Nahid Taalschool",
+    aboutTitle: "Over mij",
+    aboutKicker: "Persoonlijk, duidelijk en resultaatgericht",
     aboutText:
-      "Nahid Taalschool is er voor nieuwkomers, studenten en werkenden die Nederlands willen leren zonder zich verloren te voelen in lange theorie. De lessen zijn persoonlijk, praktisch en gericht op communicatie.",
-    aboutPoints: ["Focus op zelfvertrouwen", "Online lessen met flexibel rooster", "Voor beginners en halfgevorderden", "Groepslessen en privelessen"],
+      "Mijn naam is Nahid. Ik begeleid anderstaligen die Nederlands willen leren voor hun toekomst in Nederland of België. Ik weet hoe groot het verschil is tussen woorden kennen en echt durven praten. Daarom zijn mijn lessen praktisch, persoonlijk en gericht op resultaat. Je krijgt duidelijke uitleg, veel spreekmomenten en begeleiding die past bij jouw niveau.",
+    aboutExtra:
+      "Mijn kracht is dat ik moeilijke taalregels rustig kan uitleggen in Farsi, Engels en Nederlands. Daardoor verlies je minder tijd aan verwarring en kun je sneller gebruiken wat je leert. Of je nu net begint, je inburgering voorbereidt of sterker wilt worden voor werk of studie: je leert Nederlands op een manier die logisch voelt.",
+    aboutPoints: ["Online lessen met flexibel rooster", "Voor beginners en halfgevorderden", "Groepslessen en privelessen", "Focus op spreken, grammatica en vertrouwen"],
     coursesTitle: "Cursussen en prijzen",
-    coursesIntro: "Kies het niveau dat past bij jouw startpunt. Alle lessen zijn online en gericht op actief leren.",
-    privateTitle: "Privelessen",
-    privateText: "Een-op-een begeleiding voor wie sneller wil groeien, specifieke doelen heeft of extra uitleg nodig heeft.",
+    coursesIntro:
+      "Elke cursus heeft een duidelijk doel: je gaat niet alleen lessen volgen, je werkt naar een concreet resultaat. Kies je niveau en bouw gericht aan spreken, begrijpen en zelfstandig Nederlands gebruiken.",
+    privateTitle: "Privelessen Nederlands",
+    privateText:
+      "Wil je sneller vooruit, heb je weinig tijd of wil je hulp bij specifieke doelen? In privelessen werken we precies aan wat jij nodig hebt: spreken, grammatica, uitspraak, examenvoorbereiding of Nederlands voor werk en studie.",
+    privateResult: "Resultaat: persoonlijke feedback, sneller overzicht en een lesplan dat volledig op jou is afgestemd.",
     integrationTitle: "Inburgering",
     integrationText:
-      "Bereid je gericht voor op spreken, lezen, luisteren, schrijven en communicatie in Nederland. De lessen combineren taal, praktijk en examenvoorbereiding.",
+      "Bereid je gericht voor op inburgering met lessen die taal en praktijk combineren. Je oefent niet alleen voor het examen, maar ook voor situaties die je dagelijks in Nederland tegenkomt.",
+    integrationResult: "Resultaat: meer zekerheid bij spreken, luisteren, lezen en schrijven, met duidelijke uitleg in jouw taal.",
     faqTitle: "Veelgestelde vragen",
     blogTitle: "Blog",
-    blogIntro: "Korte artikelen over Nederlands leren, inburgering en studietips.",
+    blogIntro: "Korte artikelen over Nederlands leren, inburgering en slim studeren.",
     galleryTitle: "Sfeer van de lessen",
-    reviewsTitle: "Reviews",
-    reviewsText: "Binnenkort verschijnen hier ervaringen van studenten.",
     contactTitle: "Contact",
-    contactText: "Wil je inschrijven of eerst meer informatie? Stuur gerust een bericht via e-mail, Instagram of Telegram.",
-    email: "nahidtaalschool@gmail.com",
+    contactText:
+      "Wil je weten welk niveau bij jou past of je inschrijven voor de nieuwe periode? Stuur mij een bericht. Ik help je graag kiezen wat het beste werkt voor jouw doel.",
+    emailLabel: "E-mail",
+    instagramLabel: "Stuur DM via Instagram",
+    telegramLabel: "Stuur bericht via Telegram",
     privacyTitle: "Privacybeleid",
     privacyText:
       "Nahid Taalschool gebruikt contactgegevens alleen om vragen te beantwoorden, inschrijvingen te verwerken en lessen te organiseren. Gegevens worden niet verkocht aan derden.",
@@ -82,49 +96,58 @@ const content = {
     termsText:
       "Lessen vinden online plaats volgens het afgesproken rooster. Betaling, annulering en deelnamevoorwaarden worden vooraf duidelijk met de student gedeeld.",
     cookieText: "Deze website gebruikt functionele cookies en kan later Google Analytics gebruiken om de website te verbeteren.",
-    accept: "Accepteren",
-    close: "Sluiten"
+    accept: "Accepteren"
   },
   en: {
-    nav: ["Home", "About", "Courses", "Civic integration", "Private lessons", "FAQ", "Blog", "Contact"],
+    nav: ["Home", "About", "Courses", "Integration", "Private lessons", "FAQ", "Blog", "Contact"],
     legal: ["Privacy policy", "Terms"],
+    brandLine: "Online Dutch Lessons",
+    announcement: "New course periods for all levels will start soon. Register in time.",
     heroKicker: "Online Dutch lessons for Persian speakers",
-    heroTitle: "Learn Dutch with confidence",
+    heroTitle: "Learn to speak Dutch with structure and confidence",
     heroText:
-      "Nahid Taalschool helps non-native speakers learn Dutch faster and more practically. With clear explanations in Farsi, English and Dutch, you build speaking skills, grammar and real communication.",
+      "Many learners struggle not because Dutch is impossible, but because they never receive clear explanations and real speaking practice. At Nahid Taalschool, you learn step by step how to use Dutch in conversations, work, study and integration.",
     primaryCta: "View courses",
-    secondaryCta: "Contact",
+    secondaryCta: "Send a message",
     stats: [
-      ["A0-B2", "Levels"],
-      ["Online", "Worldwide"],
-      ["3 languages", "Support"]
+      ["A0-B2", "Beginner to advanced"],
+      ["Online", "Flexible from anywhere"],
+      ["Farsi/EN/NL", "Explanations you understand"]
     ],
-    benefitsTitle: "Practical Dutch for your future",
+    benefitsTitle: "Why students choose Nahid Taalschool",
     benefits: [
-      ["Speaking from lesson 1", "Practice real situations for work, study, integration and daily life."],
-      ["Clear grammar", "Difficult rules are explained clearly in Farsi, English and Dutch."],
-      ["Personal guidance", "You receive structure, feedback and support at your own pace."]
+      ["You speak sooner", "Practice real situations: introductions, appointments, work conversations, school, healthcare and daily life."],
+      ["Grammar becomes clear", "No isolated rules without context, but simple explanations with examples in Farsi, English and Dutch."],
+      ["You know what to study", "You receive structure, homework, feedback and a clear path to your next level."]
     ],
-    aboutTitle: "About Nahid Taalschool",
+    aboutTitle: "About me",
+    aboutKicker: "Personal, clear and result-focused",
     aboutText:
-      "Nahid Taalschool is for newcomers, students and professionals who want to learn Dutch without feeling lost in theory. Lessons are personal, practical and focused on communication.",
-    aboutPoints: ["Confidence-focused", "Flexible online schedule", "For beginners and intermediate learners", "Group and private lessons"],
+      "My name is Nahid. I help non-native speakers learn Dutch for their future in the Netherlands or Belgium. I know the difference between knowing words and daring to speak. That is why my lessons are practical, personal and focused on progress.",
+    aboutExtra:
+      "My strength is explaining difficult language rules calmly in Farsi, English and Dutch. You lose less time in confusion and start using what you learn faster. Whether you are just starting, preparing for integration, or need Dutch for work or study, you learn in a way that feels logical.",
+    aboutPoints: ["Flexible online schedule", "For beginners and intermediate learners", "Group and private lessons", "Focus on speaking, grammar and confidence"],
     coursesTitle: "Courses and prices",
-    coursesIntro: "Choose the level that matches your starting point. All lessons are online and focused on active learning.",
-    privateTitle: "Private lessons",
-    privateText: "One-to-one guidance for faster progress, specific goals or extra support.",
+    coursesIntro:
+      "Every course has a clear goal: you are not just attending lessons, you are working toward a concrete result. Choose your level and build speaking, understanding and independence.",
+    privateTitle: "Private Dutch lessons",
+    privateText:
+      "Want faster progress or support for a specific goal? In private lessons we focus exactly on what you need: speaking, grammar, pronunciation, exam preparation, work or study.",
+    privateResult: "Result: personal feedback, faster clarity and a lesson plan built around you.",
     integrationTitle: "Civic integration",
     integrationText:
-      "Prepare for speaking, reading, listening, writing and communication in the Netherlands. Lessons combine language, practice and exam preparation.",
+      "Prepare for civic integration with lessons that combine language and practice. You train for the exam and for daily situations in the Netherlands.",
+    integrationResult: "Result: more confidence in speaking, listening, reading and writing, with explanations in your language.",
     faqTitle: "Frequently asked questions",
     blogTitle: "Blog",
     blogIntro: "Short articles about learning Dutch, integration and study tips.",
     galleryTitle: "Lesson atmosphere",
-    reviewsTitle: "Reviews",
-    reviewsText: "Student experiences will appear here soon.",
     contactTitle: "Contact",
-    contactText: "Want to register or ask a question first? Send a message by email, Instagram or Telegram.",
-    email: "nahidtaalschool@gmail.com",
+    contactText:
+      "Want to know which level fits you or register for the new period? Send me a message. I will help you choose the right path for your goal.",
+    emailLabel: "Email",
+    instagramLabel: "Send DM on Instagram",
+    telegramLabel: "Send message on Telegram",
     privacyTitle: "Privacy policy",
     privacyText:
       "Nahid Taalschool uses contact details only to answer questions, process registrations and organize lessons. Data is not sold to third parties.",
@@ -132,49 +155,58 @@ const content = {
     termsText:
       "Lessons take place online according to the agreed schedule. Payment, cancellation and participation terms are shared clearly in advance.",
     cookieText: "This website uses functional cookies and may later use Google Analytics to improve the website.",
-    accept: "Accept",
-    close: "Close"
+    accept: "Accept"
   },
   fa: {
     nav: ["خانه", "درباره من", "دوره ها", "اینبرخرینگ", "کلاس خصوصی", "سوالات", "وبلاگ", "تماس"],
     legal: ["حریم خصوصی", "شرایط"],
+    brandLine: "کلاس آنلاین زبان هلندی",
+    announcement: "به زودی دوره های جدید برای همه سطح ها شروع می شود. برای رزرو جای خود زودتر پیام بدهید.",
     heroKicker: "کلاس آنلاین هلندی برای فارسی زبانان",
-    heroTitle: "با اعتماد به نفس هلندی یاد بگیرید",
+    heroTitle: "هلندی را با برنامه، آرامش و اعتماد به نفس صحبت کنید",
     heroText:
-      "Nahid Taalschool به زبان آموزان کمک می کند هلندی را سریع تر، کاربردی تر و با آرامش یاد بگیرند. توضیح ها به فارسی، انگلیسی و هلندی ارائه می شود تا مکالمه، گرامر و ارتباط واقعی را قدم به قدم یاد بگیرید.",
+      "بسیاری از زبان آموزان به خاطر سخت بودن هلندی عقب نمی مانند؛ مشکل این است که توضیح روشن و تمرین مکالمه واقعی دریافت نمی کنند. در Nahid Taalschool قدم به قدم یاد می گیرید چطور هلندی را در گفتگو، کار، تحصیل و اینبرخرینگ استفاده کنید.",
     primaryCta: "مشاهده دوره ها",
-    secondaryCta: "تماس",
+    secondaryCta: "ارسال پیام",
     stats: [
-      ["A0-B2", "سطح ها"],
-      ["آنلاین", "در سراسر جهان"],
-      ["۳ زبان", "توضیح"]
+      ["A0-B2", "از مبتدی تا پیشرفته"],
+      ["آنلاین", "قابل شرکت از هرجا"],
+      ["فارسی/انگلیسی/هلندی", "توضیح قابل فهم"]
     ],
-    benefitsTitle: "هلندی کاربردی برای آینده شما",
+    benefitsTitle: "چرا زبان آموزان Nahid Taalschool را انتخاب می کنند",
     benefits: [
-      ["مکالمه از جلسه اول", "تمرین موقعیت های واقعی برای کار، تحصیل، اینبرخرینگ و زندگی روزمره."],
-      ["گرامر قابل فهم", "قوانین سخت به زبان فارسی، انگلیسی و هلندی ساده توضیح داده می شوند."],
-      ["راهنمایی شخصی", "با ساختار، بازخورد و سرعت مناسب خودتان پیش می روید."]
+      ["زودتر شروع به صحبت می کنید", "با موقعیت های واقعی مثل معرفی، قرار ملاقات، کار، تحصیل، دکتر و زندگی روزمره تمرین می کنید."],
+      ["گرامر را بهتر می فهمید", "قانون های سخت با مثال و به زبان فارسی، انگلیسی و هلندی واضح توضیح داده می شوند."],
+      ["می دانید دقیقا چه بخوانید", "برنامه، تمرین، بازخورد و مسیر مشخص برای رسیدن به سطح بعدی دریافت می کنید."]
     ],
-    aboutTitle: "درباره Nahid Taalschool",
+    aboutTitle: "درباره من",
+    aboutKicker: "شخصی، روشن و نتیجه محور",
     aboutText:
-      "Nahid Taalschool برای تازه واردان، دانشجویان و افراد شاغلی است که می خواهند هلندی را بدون سردرگمی در تئوری یاد بگیرند. کلاس ها شخصی، کاربردی و مکالمه محور هستند.",
-    aboutPoints: ["تمرکز بر اعتماد به نفس", "برنامه آنلاین انعطاف پذیر", "برای مبتدی و نیمه پیشرفته", "کلاس گروهی و خصوصی"],
+      "من ناهید هستم. به فارسی زبانان و دیگر زبان آموزان کمک می کنم هلندی را برای آینده خود در هلند یا بلژیک یاد بگیرند. تفاوت زیادی بین بلد بودن چند کلمه و جرئت صحبت کردن وجود دارد. به همین دلیل کلاس های من کاربردی، شخصی و نتیجه محور هستند.",
+    aboutExtra:
+      "نقطه قوت من این است که قانون های سخت زبان را با آرامش و به فارسی، انگلیسی و هلندی توضیح می دهم. شما کمتر گیج می شوید و سریع تر می توانید چیزی را که یاد می گیرید استفاده کنید. چه تازه شروع کرده باشید، چه برای اینبرخرینگ آماده شوید، یا برای کار و تحصیل به هلندی نیاز داشته باشید، مسیر یادگیری برای شما واضح می شود.",
+    aboutPoints: ["کلاس آنلاین با برنامه انعطاف پذیر", "برای مبتدی و نیمه پیشرفته", "کلاس گروهی و خصوصی", "تمرکز روی مکالمه، گرامر و اعتماد به نفس"],
     coursesTitle: "دوره ها و قیمت ها",
-    coursesIntro: "سطح مناسب خود را انتخاب کنید. همه کلاس ها آنلاین و فعال هستند.",
-    privateTitle: "کلاس خصوصی",
-    privateText: "راهنمایی یک به یک برای پیشرفت سریع تر، هدف های خاص یا توضیح بیشتر.",
+    coursesIntro:
+      "هر دوره یک هدف مشخص دارد: شما فقط در کلاس شرکت نمی کنید، بلکه برای یک نتیجه واقعی تمرین می کنید. سطح خود را انتخاب کنید و قدم به قدم در مکالمه، فهمیدن و استفاده مستقل از هلندی قوی تر شوید.",
+    privateTitle: "کلاس خصوصی هلندی",
+    privateText:
+      "اگر می خواهید سریع تر پیشرفت کنید یا هدف مشخصی دارید، کلاس خصوصی بهترین انتخاب است. در این کلاس روی نیاز شما کار می کنیم: مکالمه، گرامر، تلفظ، آمادگی امتحان، کار یا تحصیل.",
+    privateResult: "نتیجه: بازخورد شخصی، پیشرفت سریع تر و برنامه ای که فقط برای شما ساخته می شود.",
     integrationTitle: "اینبرخرینگ",
     integrationText:
-      "برای صحبت کردن، خواندن، شنیدن، نوشتن و ارتباط در هلند آماده شوید. کلاس ها زبان، تمرین و آمادگی امتحان را ترکیب می کنند.",
+      "برای اینبرخرینگ با کلاس هایی آماده شوید که زبان و موقعیت های واقعی را با هم ترکیب می کنند. فقط برای امتحان نمی خوانید، بلکه برای زندگی روزمره در هلند آماده می شوید.",
+    integrationResult: "نتیجه: اعتماد به نفس بیشتر در صحبت کردن، شنیدن، خواندن و نوشتن با توضیح قابل فهم به زبان شما.",
     faqTitle: "سوالات متداول",
     blogTitle: "وبلاگ",
-    blogIntro: "مقاله های کوتاه درباره یادگیری هلندی، اینبرخرینگ و نکات مطالعه.",
+    blogIntro: "مقاله های کوتاه درباره یادگیری هلندی، اینبرخرینگ و روش مطالعه.",
     galleryTitle: "فضای کلاس ها",
-    reviewsTitle: "نظرات",
-    reviewsText: "به زودی تجربه های زبان آموزان اینجا قرار می گیرد.",
     contactTitle: "تماس",
-    contactText: "برای ثبت نام یا دریافت اطلاعات بیشتر از طریق ایمیل، اینستاگرام یا تلگرام پیام بدهید.",
-    email: "nahidtaalschool@gmail.com",
+    contactText:
+      "اگر نمی دانید کدام سطح برای شما مناسب است یا می خواهید برای دوره جدید ثبت نام کنید، پیام بدهید. با هم بهترین مسیر را برای هدف شما انتخاب می کنیم.",
+    emailLabel: "ایمیل",
+    instagramLabel: "ارسال پیام در اینستاگرام",
+    telegramLabel: "ارسال پیام در تلگرام",
     privacyTitle: "حریم خصوصی",
     privacyText:
       "Nahid Taalschool اطلاعات تماس را فقط برای پاسخ به سوالات، ثبت نام و برنامه ریزی کلاس ها استفاده می کند. اطلاعات به دیگران فروخته نمی شود.",
@@ -182,35 +214,93 @@ const content = {
     termsText:
       "کلاس ها آنلاین و طبق برنامه توافق شده برگزار می شوند. شرایط پرداخت، لغو و شرکت در کلاس از قبل واضح اعلام می شود.",
     cookieText: "این وبسایت از کوکی های ضروری استفاده می کند و ممکن است بعدا برای بهبود سایت از Google Analytics استفاده شود.",
-    accept: "قبول",
-    close: "بستن"
+    accept: "قبول"
   }
 };
 
 const courseData = [
-  ["A0 -> A1", "Nederlands in gang", "12 lessen", "90 minuten", "€130"],
-  ["A1 -> A2", "Vervolg Nederlands in gang", "16 lessen", "90 minuten", "€230"],
-  ["B1-1", "In Zicht", "18 lessen", "90 minuten", "€300"],
-  ["B1-2", "Vervolg In Zicht", "18 lessen", "90 minuten", "€350"],
-  ["B2-1", "De Finale", "18 lessen", "90 minuten", "€400"],
-  ["B2-2", "Vervolg De Finale", "18 lessen", "90 minuten", "€450"]
+  { level: "A0 -> A1", title: "Nederlands in gang", lessons: "12 lessen", duration: "90 minuten", price: "€130" },
+  { level: "A1 -> A2", title: "Vervolg Nederlands in gang", lessons: "16 lessen", duration: "90 minuten", price: "€230" },
+  { level: "B1-1", title: "In Zicht", lessons: "18 lessen", duration: "90 minuten", price: "€300" },
+  { level: "B1-2", title: "Vervolg In Zicht", lessons: "18 lessen", duration: "90 minuten", price: "€350" },
+  { level: "B2-1", title: "De Finale", lessons: "18 lessen", duration: "90 minuten", price: "€400" },
+  { level: "B2-2", title: "Vervolg De Finale", lessons: "18 lessen", duration: "90 minuten", price: "€450" }
 ];
 
-const faqs = [
-  ["Hoe werken de online lessen?", "De lessen vinden online plaats met duidelijke uitleg, spreekopdrachten en persoonlijke feedback."],
-  ["Welke niveaus geef je?", "Van A0 tot en met B2, inclusief beginners, halfgevorderden en examentraining."],
-  ["Geef je ook privelessen?", "Ja. Privelessen duren 60 minuten en kosten €40 per les."],
-  ["Kan ik inburgeringslessen volgen?", "Ja. De lessen kunnen gericht worden op inburgering en praktische communicatie."],
-  ["Welke talen spreek je?", "De uitleg kan in Farsi, Engels en Nederlands."],
-  ["Hoe meld ik me aan?", "Stuur een e-mail of bericht via Instagram of Telegram. Daarna bespreken we je niveau en doel."],
-  ["Welke boeken gebruiken jullie?", "Onder andere Nederlands in gang, In Zicht en De Finale, afhankelijk van je niveau."]
-];
+const courseCopy = {
+  nl: [
+    "Voor echte beginners. Je leert jezelf voorstellen, korte zinnen maken en eenvoudige gesprekken begrijpen.",
+    "Je bouwt door naar A2: meer woordenschat, betere zinnen en meer zekerheid in dagelijkse communicatie.",
+    "De stap naar B1 begint hier. Je leert langere gesprekken voeren en je mening eenvoudiger uitleggen.",
+    "Je maakt je B1 sterker voor werk, studie en inburgering. Meer spreken, meer structuur, meer zelfstandigheid.",
+    "Voor wie naar B2 wil groeien. Je leert genuanceerder spreken, teksten beter begrijpen en professioneler formuleren.",
+    "Je rondt B2 sterker af met focus op vloeiendheid, argumenteren en taalgebruik voor studie of werk."
+  ],
+  en: [
+    "For true beginners. Learn to introduce yourself, make short sentences and understand simple conversations.",
+    "Build toward A2 with more vocabulary, better sentences and more confidence in daily communication.",
+    "Your first step toward B1. Learn to handle longer conversations and explain your opinion more clearly.",
+    "Strengthen your B1 for work, study and integration with more speaking, structure and independence.",
+    "For learners growing toward B2. Speak with more nuance, understand texts better and communicate professionally.",
+    "Finish B2 stronger with focus on fluency, arguments and Dutch for study or work."
+  ],
+  fa: [
+    "برای شروع از صفر. یاد می گیرید خودتان را معرفی کنید، جمله های کوتاه بسازید و مکالمه ساده را بفهمید.",
+    "برای رسیدن به A2 با واژگان بیشتر، جمله سازی بهتر و اعتماد به نفس بیشتر در ارتباط روزمره.",
+    "شروع مسیر B1. یاد می گیرید مکالمه های طولانی تر داشته باشید و نظر خود را ساده تر توضیح دهید.",
+    "تقویت B1 برای کار، تحصیل و اینبرخرینگ با تمرین مکالمه، ساختار و استقلال بیشتر.",
+    "برای رسیدن به B2. یاد می گیرید دقیق تر صحبت کنید، متن ها را بهتر بفهمید و حرفه ای تر بنویسید.",
+    "تکمیل B2 با تمرکز روی روان صحبت کردن، استدلال کردن و استفاده از هلندی برای تحصیل یا کار."
+  ]
+};
 
-const blogPosts = [
-  ["5 manieren om sneller Nederlands te spreken", "Begin met korte dagelijkse zinnen, oefen hardop en focus op situaties die je echt gebruikt."],
-  ["Hoe bereid je je voor op inburgering?", "Maak een vast schema, oefen alle vaardigheden en leer woorden in context."],
-  ["Waarom grammatica makkelijker wordt met voorbeelden", "Regels blijven beter hangen wanneer je ze meteen gebruikt in echte zinnen."]
-];
+const faqData = {
+  nl: [
+    ["Hoe werken de online lessen?", "De lessen vinden online plaats met duidelijke uitleg, spreekoefeningen, huiswerk en persoonlijke feedback."],
+    ["Welke niveaus geef je?", "Van A0 tot en met B2. We kiezen samen het niveau dat past bij jouw startpunt."],
+    ["Geef je ook privelessen?", "Ja. Privelessen duren 60 minuten en kosten €40 per les."],
+    ["Kan ik inburgeringslessen volgen?", "Ja. Je kunt gericht oefenen voor taal, communicatie en examenonderdelen."],
+    ["Welke talen spreek je?", "De uitleg kan in Farsi, Engels en Nederlands."],
+    ["Hoe meld ik me aan?", "Stuur een bericht via Instagram, Telegram of e-mail. Daarna bespreken we je niveau, doel en beschikbare groep."],
+    ["Welke boeken gebruiken jullie?", "Onder andere Nederlands in gang, In Zicht en De Finale, afhankelijk van je niveau."]
+  ],
+  en: [
+    ["How do the online lessons work?", "Lessons take place online with clear explanations, speaking practice, homework and personal feedback."],
+    ["Which levels do you teach?", "From A0 to B2. We choose the right level based on your starting point."],
+    ["Do you offer private lessons?", "Yes. Private lessons are 60 minutes and cost €40 per lesson."],
+    ["Can I follow integration lessons?", "Yes. You can practice language, communication and exam parts in a focused way."],
+    ["Which languages do you speak?", "Explanations can be given in Farsi, English and Dutch."],
+    ["How do I register?", "Send a message through Instagram, Telegram or email. Then we discuss your level, goal and available group."],
+    ["Which books do you use?", "Among others Nederlands in gang, In Zicht and De Finale, depending on your level."]
+  ],
+  fa: [
+    ["کلاس های آنلاین چطور برگزار می شوند؟", "کلاس ها آنلاین هستند و شامل توضیح واضح، تمرین مکالمه، تکلیف و بازخورد شخصی می شوند."],
+    ["چه سطح هایی تدریس می کنید؟", "از A0 تا B2. با هم سطح مناسب شما را بر اساس نقطه شروع انتخاب می کنیم."],
+    ["آیا کلاس خصوصی هم دارید؟", "بله. کلاس خصوصی ۶۰ دقیقه است و هر جلسه ۴۰ یورو هزینه دارد."],
+    ["آیا می توانم برای اینبرخرینگ کلاس بگیرم؟", "بله. می توانید برای زبان، ارتباط روزمره و بخش های امتحان هدفمند تمرین کنید."],
+    ["به چه زبان هایی توضیح می دهید؟", "توضیح ها می توانند به فارسی، انگلیسی و هلندی باشند."],
+    ["چطور ثبت نام کنم؟", "از طریق اینستاگرام، تلگرام یا ایمیل پیام بدهید. بعد سطح، هدف و گروه مناسب را بررسی می کنیم."],
+    ["از چه کتاب هایی استفاده می کنید؟", "با توجه به سطح، از کتاب هایی مثل Nederlands in gang، In Zicht و De Finale استفاده می شود."]
+  ]
+};
+
+const blogPosts = {
+  nl: [
+    ["Waarom spreken belangrijker is dan wachten tot je grammatica perfect is", "Je leert taal door te gebruiken. Begin klein, spreek vaak en verbeter onderweg."],
+    ["Zo bereid je je slimmer voor op inburgering", "Een goed schema, herhaling en oefenen met echte situaties maken het verschil."],
+    ["Nederlands leren naast werk of studie", "Met korte vaste leermomenten kun je toch zichtbaar vooruitgaan."]
+  ],
+  en: [
+    ["Why speaking matters more than waiting for perfect grammar", "You learn language by using it. Start small, speak often and improve along the way."],
+    ["How to prepare smarter for integration", "A clear schedule, repetition and real-life practice make the difference."],
+    ["Learning Dutch next to work or study", "With short fixed study moments, you can still make visible progress."]
+  ],
+  fa: [
+    ["چرا نباید صبر کنید تا گرامر شما کامل شود", "زبان را با استفاده کردن یاد می گیرید. از جمله های کوچک شروع کنید و در مسیر بهتر شوید."],
+    ["آمادگی هوشمندانه برای اینبرخرینگ", "برنامه مشخص، تکرار و تمرین موقعیت های واقعی نتیجه را بهتر می کند."],
+    ["یادگیری هلندی کنار کار یا تحصیل", "با زمان های کوتاه اما ثابت می توانید پیشرفت واقعی داشته باشید."]
+  ]
+};
 
 function App() {
   const [lang, setLang] = useState("nl");
@@ -219,11 +309,6 @@ function App() {
   const [cookies, setCookies] = useState(() => localStorage.getItem("nahid-cookies") === "accepted");
   const t = content[lang];
   const isRtl = languages[lang].dir === "rtl";
-
-  useEffect(() => {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = languages[lang].dir;
-  }, [lang]);
 
   const pages = useMemo(
     () => [
@@ -234,19 +319,9 @@ function App() {
   );
 
   useEffect(() => {
-    if (!cookies || gaMeasurementId.includes("XXXXXXXXXX")) return;
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`;
-    document.head.appendChild(script);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag() {
-      window.dataLayer.push(arguments);
-    };
-    window.gtag("js", new Date());
-    window.gtag("config", gaMeasurementId);
-    return () => script.remove();
-  }, [cookies]);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = languages[lang].dir;
+  }, [lang]);
 
   function go(nextPage) {
     setPage(nextPage);
@@ -263,20 +338,19 @@ function App() {
     <div className={`site ${isRtl ? "rtl" : ""}`}>
       <Header t={t} lang={lang} setLang={setLang} page={page} go={go} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <main>
-        {page === "home" && <Home t={t} go={go} />}
+        {page === "home" && <Home t={t} lang={lang} go={go} />}
         {page === "about" && <About t={t} />}
-        {page === "courses" && <Courses t={t} />}
-        {page === "integration" && <Integration t={t} />}
-        {page === "private" && <PrivateLessons t={t} />}
-        {page === "faq" && <FaqPage t={t} />}
-        {page === "blog" && <Blog t={t} />}
+        {page === "courses" && <Courses t={t} lang={lang} go={go} />}
+        {page === "integration" && <TextPage icon={<GraduationCap size={20} />} title={t.integrationTitle} text={t.integrationText} result={t.integrationResult} />}
+        {page === "private" && <TextPage icon={<Sparkles size={20} />} title={t.privateTitle} text={t.privateText} result={t.privateResult} extra="60 minuten - €40 per les" />}
+        {page === "faq" && <FaqPage t={t} lang={lang} />}
+        {page === "blog" && <Blog t={t} lang={lang} />}
         {page === "contact" && <Contact t={t} />}
         {page === "privacy" && <Legal title={t.privacyTitle} text={t.privacyText} />}
         {page === "terms" && <Legal title={t.termsTitle} text={t.termsText} />}
       </main>
-      <Footer t={t} go={go} pages={pages} />
+      <Footer t={t} pages={pages} go={go} />
       {!cookies && <CookieBanner t={t} onAccept={acceptCookies} />}
-      <noscript>Google Analytics placeholder: replace {gaMeasurementId} after deployment.</noscript>
     </div>
   );
 }
@@ -285,14 +359,14 @@ function Header({ t, lang, setLang, page, go, menuOpen, setMenuOpen }) {
   return (
     <header className="header">
       <button className="brand" onClick={() => go("home")} aria-label="Nahid Taalschool home">
-        <span className="brand-mark">N</span>
+        <img src="/images/nahid-logo.png" alt="Nahid Taalschool logo" />
         <span>
           <strong>Nahid Taalschool</strong>
-          <small>Leer Nederlands met zelfvertrouwen</small>
+          <small>{t.brandLine}</small>
         </span>
       </button>
       <nav className="desktop-nav" aria-label="Main navigation">
-        {t.nav.slice(0, 6).map((item, index) => (
+        {t.nav.map((item, index) => (
           <button key={navKeys[index]} className={page === navKeys[index] ? "active" : ""} onClick={() => go(navKeys[index])}>
             {item}
           </button>
@@ -330,9 +404,10 @@ function LanguageSwitch({ lang, setLang }) {
   );
 }
 
-function Home({ t, go }) {
+function Home({ t, lang, go }) {
   return (
     <>
+      <section className="announcement"><Sparkles size={18} /> {t.announcement}</section>
       <section className="hero">
         <div className="hero-copy">
           <p className="kicker"><Languages size={18} /> {t.heroKicker}</p>
@@ -344,37 +419,24 @@ function Home({ t, go }) {
           </div>
           <div className="stats">
             {t.stats.map(([value, label]) => (
-              <div key={label}>
-                <strong>{value}</strong>
-                <span>{label}</span>
-              </div>
+              <div key={label}><strong>{value}</strong><span>{label}</span></div>
             ))}
           </div>
         </div>
-        <div className="hero-media">
-          <img src="/dutch-lessons-hero.png" alt="Online Nederlandse lessen" />
+        <div className="hero-media portrait">
+          <img src="/images/nahid-hero-photo.png" alt="Nahid Taalschool online Nederlandse lessen" />
         </div>
       </section>
       <Benefits t={t} />
-      <CoursesPreview t={t} go={go} />
-      <section className="band split">
-        <div>
-          <p className="kicker"><ShieldCheck size={18} /> Nahid Taalschool</p>
-          <h2>{t.aboutTitle}</h2>
-          <p>{t.aboutText}</p>
-        </div>
-        <ul className="check-list">
-          {t.aboutPoints.map((point) => <li key={point}><Check size={18} />{point}</li>)}
-        </ul>
-      </section>
+      <CoursesPreview t={t} lang={lang} go={go} />
+      <AboutBand t={t} go={go} />
       <Gallery t={t} />
-      <Reviews t={t} />
     </>
   );
 }
 
 function Benefits({ t }) {
-  const icons = [MessageCircle, BookOpen, Sparkles];
+  const icons = [MessageCircle, BookOpen, Target];
   return (
     <section className="section">
       <div className="section-head">
@@ -384,108 +446,114 @@ function Benefits({ t }) {
       <div className="feature-grid">
         {t.benefits.map(([title, text], index) => {
           const Icon = icons[index];
-          return (
-            <article className="feature-card" key={title}>
-              <Icon size={24} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          );
+          return <article className="feature-card" key={title}><Icon size={24} /><h3>{title}</h3><p>{text}</p></article>;
         })}
       </div>
     </section>
   );
 }
 
-function CoursesPreview({ t, go }) {
+function CoursesPreview({ t, lang, go }) {
   return (
     <section className="section courses-preview">
       <div className="section-head">
+        <p className="kicker"><BookOpen size={18} /> {t.announcement}</p>
         <h2>{t.coursesTitle}</h2>
         <p>{t.coursesIntro}</p>
       </div>
       <div className="course-grid compact">
-        {courseData.slice(0, 3).map((course) => <CourseCard key={course[0]} course={course} />)}
+        {courseData.slice(0, 3).map((course, index) => <CourseCard key={course.level} course={course} text={courseCopy[lang][index]} />)}
       </div>
       <button className="primary centered" onClick={() => go("courses")}>{t.primaryCta}<ArrowRight size={18} /></button>
     </section>
   );
 }
 
-function Courses({ t }) {
+function Courses({ t, lang, go }) {
   return (
     <section className="page section">
       <div className="section-head">
-        <p className="kicker"><BookOpen size={18} /> A0 - B2</p>
+        <p className="kicker"><BookOpen size={18} /> {t.announcement}</p>
         <h1>{t.coursesTitle}</h1>
         <p>{t.coursesIntro}</p>
       </div>
       <div className="course-grid">
-        {courseData.map((course) => <CourseCard key={course[0]} course={course} />)}
+        {courseData.map((course, index) => <CourseCard key={course.level} course={course} text={courseCopy[lang][index]} />)}
         <article className="course-card highlighted">
           <span>{t.privateTitle}</span>
-          <h3>Privelessen Nederlands</h3>
-          <p>60 minuten</p>
+          <h3>{t.privateTitle}</h3>
+          <p>{t.privateText}</p>
           <strong>€40 per les</strong>
+          <button className="light-button" onClick={() => go("contact")}>{t.secondaryCta}</button>
         </article>
       </div>
     </section>
   );
 }
 
-function CourseCard({ course }) {
+function CourseCard({ course, text }) {
   return (
     <article className="course-card">
-      <span>{course[0]}</span>
-      <h3>{course[1]}</h3>
-      <p>{course[2]} - {course[3]}</p>
-      <strong>{course[4]}</strong>
+      <span>{course.level}</span>
+      <h3>{course.title}</h3>
+      <p>{course.lessons} - {course.duration}</p>
+      <p>{text}</p>
+      <strong>{course.price}</strong>
     </article>
+  );
+}
+
+function AboutBand({ t, go }) {
+  return (
+    <section className="band split about-band">
+      <div>
+        <p className="kicker"><ShieldCheck size={18} /> Nahid Taalschool</p>
+        <h2>{t.aboutTitle}</h2>
+        <p>{t.aboutText}</p>
+        <button className="light-button" onClick={() => go("about")}>{t.nav[1]}<ArrowRight size={18} /></button>
+      </div>
+      <img className="about-photo" src="/images/nahid-profile-photo.png" alt="Nahid, docent Nederlands" />
+    </section>
   );
 }
 
 function About({ t }) {
   return (
-    <section className="page band split">
-      <div>
-        <p className="kicker"><Users size={18} /> Persoonlijke begeleiding</p>
+    <section className="page section about-page">
+      <div className="about-copy">
+        <p className="kicker"><Users size={18} /> {t.aboutKicker}</p>
         <h1>{t.aboutTitle}</h1>
         <p>{t.aboutText}</p>
+        <p>{t.aboutExtra}</p>
+        <ul className="check-list light">
+          {t.aboutPoints.map((point) => <li key={point}><Check size={18} />{point}</li>)}
+        </ul>
       </div>
-      <ul className="check-list">
-        {t.aboutPoints.map((point) => <li key={point}><Check size={18} />{point}</li>)}
-      </ul>
+      <img className="about-photo large" src="/images/nahid-profile-photo.png" alt="Nahid, docent Nederlands" />
     </section>
   );
 }
 
-function Integration({ t }) {
-  return <TextPage icon={<GraduationCap size={20} />} title={t.integrationTitle} text={t.integrationText} />;
-}
-
-function PrivateLessons({ t }) {
-  return <TextPage icon={<Sparkles size={20} />} title={t.privateTitle} text={t.privateText} extra="60 minuten - €40 per les" />;
-}
-
-function TextPage({ icon, title, text, extra }) {
+function TextPage({ icon, title, text, result, extra }) {
   return (
     <section className="page section text-page">
       <p className="kicker">{icon} Online begeleiding</p>
       <h1>{title}</h1>
       <p>{text}</p>
+      <p className="result-box">{result}</p>
       {extra && <strong className="price-pill">{extra}</strong>}
     </section>
   );
 }
 
-function FaqPage({ t }) {
+function FaqPage({ t, lang }) {
   return (
     <section className="page section">
       <div className="section-head">
         <h1>{t.faqTitle}</h1>
       </div>
       <div className="faq-list">
-        {faqs.map(([question, answer]) => <FaqItem key={question} question={question} answer={answer} />)}
+        {faqData[lang].map(([question, answer]) => <FaqItem key={question} question={question} answer={answer} />)}
       </div>
     </section>
   );
@@ -504,7 +572,7 @@ function FaqItem({ question, answer }) {
   );
 }
 
-function Blog({ t }) {
+function Blog({ t, lang }) {
   return (
     <section className="page section">
       <div className="section-head">
@@ -512,12 +580,8 @@ function Blog({ t }) {
         <p>{t.blogIntro}</p>
       </div>
       <div className="feature-grid">
-        {blogPosts.map(([title, text]) => (
-          <article className="feature-card" key={title}>
-            <BookOpen size={24} />
-            <h3>{title}</h3>
-            <p>{text}</p>
-          </article>
+        {blogPosts[lang].map(([title, text]) => (
+          <article className="feature-card" key={title}><BookOpen size={24} /><h3>{title}</h3><p>{text}</p></article>
         ))}
       </div>
     </section>
@@ -526,15 +590,20 @@ function Blog({ t }) {
 
 function Contact({ t }) {
   return (
-    <section className="page section contact-section">
-      <div className="section-head">
+    <section className="page section contact-page">
+      <div className="contact-copy">
+        <p className="kicker"><Send size={18} /> Nahid Taalschool</p>
         <h1>{t.contactTitle}</h1>
         <p>{t.contactText}</p>
+        <div className="trust-box">
+          <strong>KvK: {business.kvk}</strong>
+          <strong>BTW: {business.btw}</strong>
+        </div>
       </div>
       <div className="contact-grid">
-        <a className="contact-card" href={`mailto:${t.email}`}><Mail size={24} /><span>{t.email}</span></a>
-        <a className="contact-card" href={socialLinks.instagram}><Instagram size={24} /><span>Instagram</span></a>
-        <a className="contact-card" href={socialLinks.telegram}><MessageCircle size={24} /><span>Telegram</span></a>
+        <a className="contact-card" href={`mailto:${business.email}`}><Mail size={24} /><span>{t.emailLabel}</span><small>{business.email}</small></a>
+        <a className="contact-card" href={business.instagram} target="_blank" rel="noreferrer"><Instagram size={24} /><span>{t.instagramLabel}</span><small>@nahid_taalles</small></a>
+        <a className="contact-card" href={business.telegram} target="_blank" rel="noreferrer"><MessageCircle size={24} /><span>{t.telegramLabel}</span><small>@Nahid_1301</small></a>
       </div>
     </section>
   );
@@ -555,32 +624,26 @@ function Gallery({ t }) {
   );
 }
 
-function Reviews({ t }) {
-  return (
-    <section className="band reviews">
-      <p className="kicker"><Sparkles size={18} /> {t.reviewsTitle}</p>
-      <h2>{t.reviewsTitle}</h2>
-      <p>{t.reviewsText}</p>
-    </section>
-  );
-}
-
 function Legal({ title, text }) {
   return (
     <section className="page section text-page">
       <h1>{title}</h1>
       <p>{text}</p>
-      <p>KvK: 97121908<br />BTW: NL005249616B95</p>
+      <p className="result-box">KvK: {business.kvk}<br />BTW: {business.btw}</p>
     </section>
   );
 }
 
-function Footer({ t, go, pages }) {
+function Footer({ t, pages, go }) {
   return (
     <footer className="footer">
-      <div>
-        <strong>Nahid Taalschool</strong>
-        <p>Online Nederlandse lessen voor anderstaligen.</p>
+      <div className="footer-brand">
+        <img src="/images/nahid-logo.png" alt="Nahid Taalschool logo" />
+        <div>
+          <strong>Nahid Taalschool</strong>
+          <p>{t.brandLine}</p>
+          <p>KvK: {business.kvk} | BTW: {business.btw}</p>
+        </div>
       </div>
       <div className="footer-links">
         {pages.map((item) => <button key={item.key} onClick={() => go(item.key)}>{item.label}</button>)}
