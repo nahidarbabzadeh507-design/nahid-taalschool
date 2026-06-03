@@ -359,7 +359,7 @@ function Header({ t, lang, setLang, page, go, menuOpen, setMenuOpen }) {
   return (
     <header className="header">
       <button className="brand" onClick={() => go("home")} aria-label="Nahid Taalschool home">
-        <img src="/images/nahid-logo.png" alt="Nahid Taalschool logo" />
+        <img src="/nahid-logo.png" alt="Nahid Taalschool logo" />
         <span>
           <strong>Nahid Taalschool</strong>
           <small>{t.brandLine}</small>
@@ -512,7 +512,7 @@ function AboutBand({ t, go }) {
         <p>{t.aboutText}</p>
         <button className="light-button" onClick={() => go("about")}>{t.nav[1]}<ArrowRight size={18} /></button>
       </div>
-      <img className="about-photo" src="/images/nahid-profile-photo.png" alt="Nahid, docent Nederlands" />
+      <img className="about-photo large" src="/nahid-profile-photo.png" alt="Nahid, docent Nederlands" />
     </section>
   );
 }
@@ -529,7 +529,7 @@ function About({ t }) {
           {t.aboutPoints.map((point) => <li key={point}><Check size={18} />{point}</li>)}
         </ul>
       </div>
-      <img className="about-photo large" src="/images/nahid-profile-photo.png" alt="Nahid, docent Nederlands" />
+      <img className="about-photo large" src="/nahid-profile-photo.png" alt="Nahid, docent Nederlands" />
     </section>
   );
 }
@@ -638,7 +638,7 @@ function Footer({ t, pages, go }) {
   return (
     <footer className="footer">
       <div className="footer-brand">
-        <img src="/images/nahid-logo.png" alt="Nahid Taalschool logo" />
+        <img src="/nahid-logo.png" alt="Nahid Taalschool logo" />
         <div>
           <strong>Nahid Taalschool</strong>
           <p>{t.brandLine}</p>
