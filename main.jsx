@@ -424,7 +424,7 @@ function Home({ t, lang, go }) {
           </div>
         </div>
         <div className="hero-media portrait">
-          <img src="/images/nahid-hero-photo.png" alt="Nahid Taalschool online Nederlandse lessen" />
+          <img src="/nahid-hero-photo.png" alt="Online Nederlandse lessen" />
         </div>
       </section>
       <Benefits t={t} />
